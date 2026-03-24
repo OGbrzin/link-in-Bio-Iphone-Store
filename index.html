@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clowve | Oficial</title>
+
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0D1117;
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 420px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .logo {
+      width: 80px;
+      border-radius: 20px;
+    }
+
+    h1 {
+      margin: 10px 0 5px;
+    }
+
+    .subtitle {
+      color: #808a96;
+      font-size: 14px;
+    }
+
+    .banner {
+      background: linear-gradient(45deg, #ff3c00, #ff7a00);
+      padding: 15px;
+      border-radius: 15px;
+      margin: 20px 0;
+      font-weight: bold;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+      100% { transform: scale(1); }
+    }
+
+    .timer {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .product {
+      background: #161B22;
+      padding: 15px;
+      border-radius: 15px;
+      margin-bottom: 15px;
+      text-align: left;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.6s forwards;
+    }
+
+    .product:nth-of-type(1) { animation-delay: 0.2s; }
+    .product:nth-of-type(2) { animation-delay: 0.4s; }
+    .product:nth-of-type(3) { animation-delay: 0.6s; }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .price-old {
+      text-decoration: line-through;
+      color: #8B949E;
+    }
+
+    .price-new {
+      color: #00ff88;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .stock {
+      color: #ff7a00;
+      font-size: 12px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      background: #00ff88;
+      color: black;
+      padding: 10px;
+      border-radius: 10px;
+      margin-top: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* 🔥 CARD PREMIUM */
+    .premium {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #30363D;
+      transition: 0.25s;
+    }
+
+    .premium img {
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .badge-top {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: linear-gradient(45deg, #ff5a00, #ff8c00);
+      color: white;
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .premium:hover {
+      transform: translateY(-3px);
+      border-color: #ff7a00;
+      box-shadow: 0 10px 25px rgba(255, 120, 0, 0.25);
+    }
+
+    .shopee-btn {
+      background: linear-gradient(45deg, #ff5a00, #ff8c00);
+      color: white;
+    }
+
+    /* 📱 CARROSSEL */
+    .carousel-section {
+      margin: 20px 0;
+      text-align: left;
+    }
+
+    .carousel-title {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .carousel {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+    }
+
+    .carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel-item {
+      min-width: 110px;
+      background: #161B22;
+      border-radius: 12px;
+      padding: 10px;
+      text-align: center;
+      scroll-snap-align: start;
+      flex-shrink: 0;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: 90px;
+      object-fit: contain;
+    }
+
+    .carousel-item p {
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .view-all {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(45deg, #ff5a00, #ff8c00);
+      color: white;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <img src="assets/favicon.png" class="logo">
+  <h1>Clowve | Ofertas</h1>
+  <p class="subtitle">iPhones com até 40% OFF 🚀</p>
+
+  <div class="banner">
+    ⚡ OFERTA TERMINA EM:
+    <div class="timer" id="timer"></div>
+  </div>
+
+  <!-- PRODUTO 1 -->
+  <div class="product">
+    <img src="assets/iphone13.png">
+    <h3>iPhone 13 128GB</h3>
+    <div class="price-old">De R$ 3.180</div>
+    <div class="price-new">R$ 2.330</div>
+    <div class="stock">⚡ Restam <span class="stock-num">7</span> unidades</div>
+    <a href="https://s.shopee.com.br/5fkHIRP0iL" target="_blank" rel="noopener noreferrer" class="btn">
+  🛒 Comprar agora
+</a>
+  </div>
+
+  <!-- CARROSSEL -->
+  <div class="carousel-section">
+    <h3 class="carousel-title">🔥 Mais modelos disponíveis</h3>
+    <div class="carousel">
+      <div class="carousel-item">
+        <img src="assets/iphone11.png">
+        <p>iPhone 11</p>
+      </div>
+      <div class="carousel-item">
+        <img src="assets/iphone12.png">
+        <p>iPhone 12</p>
+      </div>
+      <div class="carousel-item">
+        <img src="assets/iphone13.png">
+        <p>iPhone 13</p>
+      </div>
+      <div class="carousel-item">
+        <img src="assets/iphone14.png">
+        <p>iPhone 14</p>
+      </div>
+      <div class="carousel-item">
+        <img src="assets/iphone15.png">
+        <p>iPhone 15</p>
+      </div>
+
+      <a href="SEU_LINK_SHOPEE" class="carousel-item view-all">
+        <span>Ver todos</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- CARD PREMIUM -->
+  <div class="product premium">
+    <div class="badge-top">+50 modelos</div>
+    <img src="assets/variosiphones.png">
+    <h3>Ver todos os iPhones</h3>
+    <p class="subtitle">Do 8 ao 16 com desconto 🔥</p>
+<a href="https://s.shopee.com.br/2qQ5v4vmK0" target="_blank" rel="noopener noreferrer" class="btn">
+  👉 Acessar a loja na Shopee
+</a>
+  </div>
+
+</div>
+
+<script>
+  let time = 600;
+
+  setInterval(() => {
+    let min = Math.floor(time / 60);
+    let sec = time % 60;
+    document.getElementById("timer").innerHTML =
+      `${min}:${sec < 10 ? '0' : ''}${sec}`;
+    time--;
+  }, 1000);
+
+  setInterval(() => {
+    document.querySelectorAll(".stock-num").forEach(el => {
+      let val = parseInt(el.innerText);
+      if (val > 1 && Math.random() > 0.5) {
+        el.innerText = val - 1;
+      }
+    });
+  }, 5000);
+</script>
+
+</body>
+</html>
